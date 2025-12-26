@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
+import { useInView } from "@/hooks/use-animations";
 
 const faqs = [
   {
@@ -42,34 +43,54 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.2 });
+  const { ref: accordionRef, isInView: accordionInView } = useInView({ threshold: 0.1 });
+
   return (
     <section id="faq" className="py-20 md:py-28 bg-muted/30 pattern-african-dark">
       <div className="container">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+        <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
+          <div 
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
             <HelpCircle className="w-4 h-4" />
             Got Questions?
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground">
+          <h2 
+            className={`text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "100ms" }}
+          >
             Frequently Asked{" "}
             <span className="text-secondary">Questions</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <p 
+            className={`mt-6 text-lg text-muted-foreground leading-relaxed transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "200ms" }}
+          >
             Everything you need to know about our programs, enrollment, and learning experience.
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto" ref={accordionRef}>
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-card border border-border/50 rounded-xl px-6 shadow-soft data-[state=open]:shadow-card transition-shadow"
+                className={`bg-card border border-border/50 rounded-xl px-6 shadow-soft hover:shadow-card transition-all duration-500 data-[state=open]:shadow-card ${
+                  accordionInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+                style={{ transitionDelay: `${index * 75}ms` }}
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5 [&[data-state=open]>svg]:text-secondary">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5 [&[data-state=open]>svg]:text-secondary hover:text-primary transition-colors">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
@@ -82,9 +103,9 @@ const FAQ = () => {
 
         {/* Decorative divider */}
         <div className="flex items-center justify-center gap-2 mt-16">
-          <div className="h-1 w-8 rounded-full bg-primary" />
-          <div className="h-1 w-4 rounded-full bg-secondary" />
-          <div className="h-1 w-8 rounded-full bg-accent" />
+          <div className={`h-1 rounded-full bg-primary transition-all duration-700 ${accordionInView ? "w-8" : "w-0"}`} style={{ transitionDelay: "600ms" }} />
+          <div className={`h-1 rounded-full bg-secondary transition-all duration-700 ${accordionInView ? "w-4" : "w-0"}`} style={{ transitionDelay: "700ms" }} />
+          <div className={`h-1 rounded-full bg-accent transition-all duration-700 ${accordionInView ? "w-8" : "w-0"}`} style={{ transitionDelay: "800ms" }} />
         </div>
       </div>
     </section>
