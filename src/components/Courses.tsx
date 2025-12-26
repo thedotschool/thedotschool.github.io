@@ -1,4 +1,5 @@
 import CourseCard from "./CourseCard";
+import { useInView } from "@/hooks/use-animations";
 
 const courses = [
   {
@@ -69,19 +70,35 @@ const courses = [
 ];
 
 const Courses = () => {
+  const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.2 });
+
   return (
     <section id="courses" className="py-20 md:py-28 bg-muted/30">
       <div className="container">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/15 text-accent-foreground text-sm font-medium mb-4">
+        <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
+          <div 
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/15 text-accent-foreground text-sm font-medium mb-4 transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
             Our Programs
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground">
+          <h2 
+            className={`text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "100ms" }}
+          >
             Choose Your{" "}
             <span className="text-gradient">Learning Path</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <p 
+            className={`mt-6 text-lg text-muted-foreground leading-relaxed transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "200ms" }}
+          >
             Whether you're starting from scratch or leveling up your backend skills, we have a program designed for your goals.
           </p>
         </div>
@@ -89,7 +106,7 @@ const Courses = () => {
         {/* Course cards grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {courses.map((course, index) => (
-            <CourseCard key={course.title} {...course} />
+            <CourseCard key={course.title} {...course} index={index} />
           ))}
         </div>
       </div>
