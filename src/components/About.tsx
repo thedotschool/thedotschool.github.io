@@ -29,7 +29,7 @@ const About = () => {
   const { ref: gridRef, isInView: gridInView } = useInView({ threshold: 0.1 });
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-background pattern-african-dark">
+    <section id="about" className="py-20 md:py-28 bg-background">
       <div className="container">
         {/* Section header */}
         <div 
@@ -58,7 +58,7 @@ const About = () => {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            We're on a mission to help beginners and aspiring developers in Africa build practical software engineering skills. Our programs focus on backend engineering, problem-solving, and real-world project experience.
+            dotSchool Africa is on a mission to help beginners and aspiring developers build practical software engineering skills. Our programs focus on backend engineering, problem-solving, and real-world project experience.
           </p>
         </div>
 

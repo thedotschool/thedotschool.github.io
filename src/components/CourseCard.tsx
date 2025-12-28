@@ -76,15 +76,15 @@ const CourseCard = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Discount badge */}
-      <div className="bg-accent/10 px-6 py-3 flex items-center justify-between relative overflow-hidden">
-        <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent-foreground relative z-10">
-          <span className={`flex items-center justify-center w-5 h-5 rounded-full bg-accent text-accent-foreground text-xs transition-transform duration-300 ${isHovered ? "rotate-180 scale-110" : ""}`}>
+      <div className="bg-secondary/10 px-6 py-3 flex items-center justify-between relative overflow-hidden">
+        <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground relative z-10">
+          <span className={`flex items-center justify-center w-5 h-5 rounded-full bg-secondary text-secondary-foreground text-xs transition-transform duration-300 ${isHovered ? "rotate-180 scale-110" : ""}`}>
             ✦
           </span>
           {discount} Scholarship
         </span>
-        <span className="text-xs text-muted-foreground relative z-10">Limited spots</span>
-        <div className={`absolute inset-0 bg-accent/5 transition-transform duration-500 ${isHovered ? "translate-x-0" : "-translate-x-full"}`} />
+        <span className="text-xs font-medium text-secondary relative z-10">Next Cohort Only</span>
+        <div className={`absolute inset-0 bg-secondary/5 transition-transform duration-500 ${isHovered ? "translate-x-0" : "-translate-x-full"}`} />
       </div>
 
       <div className="p-6 md:p-8">
