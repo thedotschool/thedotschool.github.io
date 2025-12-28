@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HelpCircle } from "lucide-react";
 import { useInView } from "@/hooks/use-animations";
 
 const faqs = [
@@ -47,30 +46,28 @@ const FAQ = () => {
   const { ref: accordionRef, isInView: accordionInView } = useInView({ threshold: 0.1 });
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-muted/30 pattern-african-dark">
+    <section id="faq" className="py-24 md:py-32 bg-background">
       <div className="container">
         {/* Section header */}
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
-          <div 
-            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          <span 
+            className={`inline-block text-sm font-medium text-muted-foreground mb-4 tracking-wide uppercase transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <HelpCircle className="w-4 h-4" />
             Got Questions?
-          </div>
+          </span>
           <h2 
-            className={`text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-foreground leading-[1.2] transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "100ms" }}
           >
-            Frequently Asked{" "}
-            <span className="text-secondary">Questions</span>
+            Frequently Asked Questions
           </h2>
           <p 
-            className={`mt-6 text-lg text-muted-foreground leading-relaxed transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`mt-6 text-muted-foreground leading-relaxed transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "200ms" }}
           >
@@ -80,17 +77,17 @@ const FAQ = () => {
 
         {/* FAQ Accordion */}
         <div className="max-w-3xl mx-auto" ref={accordionRef}>
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className={`bg-card border border-border/50 rounded-xl px-6 shadow-soft hover:shadow-card transition-all duration-500 data-[state=open]:shadow-card ${
-                  accordionInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                className={`bg-card border border-border/60 rounded-lg px-6 shadow-subtle transition-all duration-500 data-[state=open]:shadow-card ${
+                  accordionInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
-                style={{ transitionDelay: `${index * 75}ms` }}
+                style={{ transitionDelay: `${index * 60}ms` }}
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5 [&[data-state=open]>svg]:text-secondary hover:text-primary transition-colors">
+                <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-5 hover:text-primary transition-colors">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
@@ -101,11 +98,11 @@ const FAQ = () => {
           </Accordion>
         </div>
 
-        {/* Decorative divider */}
-        <div className="flex items-center justify-center gap-2 mt-16">
-          <div className={`h-1 rounded-full bg-primary transition-all duration-700 ${accordionInView ? "w-8" : "w-0"}`} style={{ transitionDelay: "600ms" }} />
-          <div className={`h-1 rounded-full bg-secondary transition-all duration-700 ${accordionInView ? "w-4" : "w-0"}`} style={{ transitionDelay: "700ms" }} />
-          <div className={`h-1 rounded-full bg-accent transition-all duration-700 ${accordionInView ? "w-8" : "w-0"}`} style={{ transitionDelay: "800ms" }} />
+        {/* Minimal divider */}
+        <div className="flex items-center justify-center gap-3 mt-20">
+          <div className="h-px w-12 bg-border" />
+          <div className="w-2 h-2 rounded-full bg-primary/30" />
+          <div className="h-px w-12 bg-border" />
         </div>
       </div>
     </section>

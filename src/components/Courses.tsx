@@ -73,29 +73,28 @@ const Courses = () => {
   const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.2 });
 
   return (
-    <section id="courses" className="py-20 md:py-28 bg-muted/30">
+    <section id="courses" className="py-24 md:py-32 bg-muted/50">
       <div className="container">
         {/* Section header */}
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
-          <div 
-            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/15 text-accent-foreground text-sm font-medium mb-4 transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          <span 
+            className={`inline-block text-sm font-medium text-muted-foreground mb-4 tracking-wide uppercase transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
             Our Programs
-          </div>
+          </span>
           <h2 
-            className={`text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-foreground leading-[1.2] transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "100ms" }}
           >
-            Choose Your{" "}
-            <span className="text-gradient">Learning Path</span>
+            Choose Your Learning Path
           </h2>
           <p 
-            className={`mt-6 text-lg text-muted-foreground leading-relaxed transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`mt-6 text-muted-foreground leading-relaxed transition-all duration-500 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "200ms" }}
           >
@@ -104,7 +103,7 @@ const Courses = () => {
         </div>
 
         {/* Course cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course, index) => (
             <CourseCard key={course.title} {...course} index={index} />
           ))}
