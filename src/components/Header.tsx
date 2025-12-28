@@ -9,7 +9,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -22,14 +22,14 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled 
-          ? "bg-background/98 backdrop-blur-sm border-b border-border py-3" 
-          : "bg-transparent py-4"
+          ? "bg-background/95 backdrop-blur-sm border-b border-border" 
+          : "bg-background"
       }`}
     >
       <div className="container">
-        <nav className="flex items-center justify-between">
+        <nav className="flex items-center justify-between h-16">
           {/* Logo */}
           <a 
             href="#" 
@@ -38,28 +38,21 @@ const Header = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <Logo variant={isScrolled ? "dark" : "light"} />
+            <Logo />
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {["about", "courses", "scholarship", "faq"].map((section) => (
+            {["about", "courses", "faq"].map((section) => (
               <button 
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`text-sm font-medium transition-colors relative group ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                }`}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
               </button>
             ))}
-            <Button 
-              variant={isScrolled ? "default" : "heroOutline"}
-              size="sm"
-              asChild
-            >
+            <Button size="sm" asChild>
               <a 
                 href="https://forms.google.com/your-form-link" 
                 target="_blank" 
@@ -73,11 +66,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              isScrolled 
-                ? "text-foreground hover:bg-muted" 
-                : "text-primary-foreground hover:bg-primary-foreground/10"
-            }`}
+            className="md:hidden p-2 text-foreground"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -85,22 +74,18 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 p-4 rounded-lg bg-card border border-border shadow-card animate-scale-in">
-            <div className="flex flex-col gap-1">
-              {["about", "courses", "scholarship", "faq"].map((section) => (
+          <div className="md:hidden py-4 border-t border-border">
+            <div className="flex flex-col gap-2">
+              {["about", "courses", "faq"].map((section) => (
                 <button 
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
+                  className="text-left py-2 text-foreground hover:text-primary transition-colors"
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </button>
               ))}
-              <Button 
-                variant="default"
-                className="mt-3"
-                asChild
-              >
+              <Button className="mt-2" asChild>
                 <a 
                   href="https://forms.google.com/your-form-link" 
                   target="_blank" 
