@@ -1,111 +1,83 @@
 import CourseCard from "./CourseCard";
-import { useInView } from "@/hooks/use-animations";
 
 const courses = [
   {
     title: "Introduction to Software Engineering",
-    description: "Perfect for complete beginners. Learn programming fundamentals, version control, Python, databases, and build your first web application with Django.",
+    description: "For complete beginners. Learn programming fundamentals, version control, Python, databases, and build your first web application.",
     duration: "12 Weeks",
     originalPrice: "₦100,000",
     currentPrice: "₦10,000",
-    discount: "90%",
-    color: "indigo" as const,
     outline: [
-      { week: "Week 1", topic: "Onboarding, Developer Mindset & PC Setup" },
-      { week: "Week 2", topic: "Shell Basics & Systems Engineering" },
-      { week: "Week 3", topic: "Git & GitHub (Version Control)" },
-      { week: "Week 4", topic: "Python Basics" },
-      { week: "Week 5", topic: "Python Data Structures" },
-      { week: "Week 6", topic: "Conditions, Booleans, Loops & Iterations" },
-      { week: "Week 7", topic: "Functions, Modules & Intro to OOP" },
-      { week: "Week 8", topic: "Files, OS Module & Exceptions" },
-      { week: "Week 9", topic: "Databases & SQL Fundamentals" },
-      { week: "Week 10", topic: "Intro to Web Development & Django" },
-      { week: "Week 11", topic: "Django Models, Views & Templates" },
-      { week: "Week 12", topic: "Final Project & Review" },
+      { week: "Week 1", topic: "Developer mindset & environment setup" },
+      { week: "Week 2", topic: "Shell basics & systems engineering" },
+      { week: "Week 3", topic: "Git & GitHub" },
+      { week: "Week 4", topic: "Python basics" },
+      { week: "Week 5", topic: "Python data structures" },
+      { week: "Week 6", topic: "Control flow & iterations" },
+      { week: "Week 7", topic: "Functions & OOP introduction" },
+      { week: "Week 8", topic: "Files & exceptions" },
+      { week: "Week 9", topic: "Databases & SQL" },
+      { week: "Week 10", topic: "Web development & Django" },
+      { week: "Week 11", topic: "Django models, views & templates" },
+      { week: "Week 12", topic: "Final project" },
     ],
   },
   {
-    title: "Backend Web Development (Python)",
-    description: "Master backend development with Python and Django. Build production-ready REST APIs, handle authentication, and deploy scalable applications.",
+    title: "Backend Development (Python)",
+    description: "Master backend development with Python and Django. Build production-ready REST APIs, authentication, and scalable applications.",
     duration: "12 Weeks",
     originalPrice: "₦100,000",
     currentPrice: "₦10,000",
-    discount: "90%",
-    color: "terracotta" as const,
     outline: [
-      { week: "Week 1–3", topic: "Common Engineering Foundations" },
-      { week: "Week 4", topic: "Object-Oriented Programming (OOP) in Python" },
-      { week: "Week 5", topic: "Django Architecture & Project Structure" },
-      { week: "Week 6", topic: "Models, ORM & Database Design" },
-      { week: "Week 7", topic: "REST APIs & Django REST Framework" },
-      { week: "Week 8", topic: "Authentication & Authorization" },
-      { week: "Week 9", topic: "Filtering, Pagination & Optimization" },
-      { week: "Week 10", topic: "Caching, Performance & Security" },
-      { week: "Week 11", topic: "Testing & Documentation" },
-      { week: "Week 12", topic: "Capstone Backend Project" },
+      { week: "Week 1–3", topic: "Engineering foundations" },
+      { week: "Week 4", topic: "OOP in Python" },
+      { week: "Week 5", topic: "Django architecture" },
+      { week: "Week 6", topic: "Models & database design" },
+      { week: "Week 7", topic: "REST APIs & DRF" },
+      { week: "Week 8", topic: "Authentication" },
+      { week: "Week 9", topic: "Filtering & pagination" },
+      { week: "Week 10", topic: "Performance & security" },
+      { week: "Week 11", topic: "Testing & documentation" },
+      { week: "Week 12", topic: "Capstone project" },
     ],
   },
   {
-    title: "Backend Web Development (Node.js)",
-    description: "Become a Node.js backend developer. Learn Express.js, build REST APIs, implement authentication, and create scalable server-side applications.",
+    title: "Backend Development (Node.js)",
+    description: "Become a Node.js developer. Learn Express.js, build REST APIs, implement authentication, and create scalable server applications.",
     duration: "12 Weeks",
     originalPrice: "₦100,000",
     currentPrice: "₦10,000",
-    discount: "90%",
-    color: "gold" as const,
     outline: [
-      { week: "Week 1–3", topic: "Common Engineering Foundations" },
-      { week: "Week 4", topic: "JavaScript Fundamentals for Backend" },
-      { week: "Week 5", topic: "Node.js Runtime & Project Structure" },
+      { week: "Week 1–3", topic: "Engineering foundations" },
+      { week: "Week 4", topic: "JavaScript for backend" },
+      { week: "Week 5", topic: "Node.js runtime" },
       { week: "Week 6", topic: "Express.js & REST APIs" },
-      { week: "Week 7", topic: "Databases & Data Modeling" },
-      { week: "Week 8", topic: "Authentication & Authorization" },
-      { week: "Week 9", topic: "Middleware & Error Handling" },
-      { week: "Week 10", topic: "Performance, Caching & Security" },
-      { week: "Week 11", topic: "Testing & Documentation" },
-      { week: "Week 12", topic: "Capstone Backend Project" },
+      { week: "Week 7", topic: "Databases & modeling" },
+      { week: "Week 8", topic: "Authentication" },
+      { week: "Week 9", topic: "Middleware & errors" },
+      { week: "Week 10", topic: "Performance & security" },
+      { week: "Week 11", topic: "Testing & documentation" },
+      { week: "Week 12", topic: "Capstone project" },
     ],
   },
 ];
 
 const Courses = () => {
-  const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.2 });
-
   return (
-    <section id="courses" className="py-24 md:py-32 bg-muted/50">
+    <section id="courses" className="py-20 md:py-28">
       <div className="container">
-        {/* Section header */}
-        <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
-          <span 
-            className={`inline-block text-sm font-medium text-muted-foreground mb-4 tracking-wide uppercase transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            Our Programs
-          </span>
-          <h2 
-            className={`text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-foreground leading-[1.2] transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: "100ms" }}
-          >
-            Choose Your Learning Path
+        <div className="max-w-2xl mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Courses
           </h2>
-          <p 
-            className={`mt-6 text-muted-foreground leading-relaxed transition-all duration-500 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: "200ms" }}
-          >
-            Whether you're starting from scratch or leveling up your backend skills, we have a program designed for your goals.
+          <p className="text-muted-foreground leading-relaxed">
+            Choose the path that fits your goals. Each course is 12 weeks of structured, hands-on learning.
           </p>
         </div>
 
-        {/* Course cards grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course, index) => (
-            <CourseCard key={course.title} {...course} index={index} />
+          {courses.map((course) => (
+            <CourseCard key={course.title} {...course} />
           ))}
         </div>
       </div>

@@ -2,92 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Strict Engineering School Color System */
-    
-    /* Primary - Indigo Core */
-    --background: 40 30% 98%; /* Sand-50 */
-    --foreground: 220 15% 15%; /* Gray-900 */
+    /* Clean, minimal tech color system */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover-foreground: 220 20% 10%;
 
-    /* Indigo-900 - Primary UI */
-    --primary: 232 42% 18%;
-    --primary-foreground: 40 30% 98%;
+    /* Single accent - Modern blue */
+    --primary: 224 76% 53%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Indigo-700 - Primary lighter */
-    --primary-light: 232 38% 28%;
+    /* Secondary - subtle */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 10%;
 
-    /* Terracotta-500 - Accent (interaction only) */
-    --secondary: 18 60% 48%;
-    --secondary-foreground: 0 0% 100%;
+    /* Muted grays */
+    --muted: 220 14% 97%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Gold-500 - Status emphasis only */
-    --accent: 42 85% 52%;
-    --accent-foreground: 220 15% 15%;
-
-    /* Neutral grays */
-    --muted: 40 20% 96%;
-    --muted-foreground: 220 10% 45%; /* Gray-600 */
+    --accent: 224 76% 53%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 232 42% 18%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 224 76% 53%;
 
     --radius: 0.5rem;
 
-    /* Shadows - Single shadow style */
-    --shadow-card: 0 8px 24px rgba(0,0,0,0.06);
-    --shadow-subtle: 0 1px 3px rgba(0,0,0,0.04);
-
-    --sidebar-background: 40 30% 98%;
-    --sidebar-foreground: 220 10% 45%;
-    --sidebar-primary: 232 42% 18%;
-    --sidebar-primary-foreground: 40 30% 98%;
-    --sidebar-accent: 40 20% 96%;
-    --sidebar-accent-foreground: 232 42% 18%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 232 42% 18%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 9% 46%;
+    --sidebar-primary: 224 76% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 13% 90%;
+    --sidebar-ring: 224 76% 53%;
   }
 
   .dark {
-    --background: 220 15% 10%;
-    --foreground: 40 30% 98%;
+    --background: 220 20% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 220 15% 13%;
-    --card-foreground: 40 30% 98%;
+    --card: 220 20% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 220 15% 13%;
-    --popover-foreground: 40 30% 98%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 40 30% 98%;
-    --primary-foreground: 232 42% 18%;
+    --primary: 224 76% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 18 55% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 15% 18%;
-    --muted-foreground: 220 10% 65%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 9% 60%;
 
-    --accent: 42 80% 50%;
-    --accent-foreground: 220 15% 10%;
+    --accent: 224 76% 58%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 22%;
-    --input: 220 15% 22%;
-    --ring: 42 85% 52%;
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 224 76% 58%;
   }
 }
 
@@ -97,42 +87,19 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
-    font-size: 16.5px;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
     line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
-    line-height: 1.2;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.25;
+    font-weight: 600;
   }
 
   h1 {
-    @apply font-extrabold;
-  }
-
-  h2, h3, h4 {
-    @apply font-semibold;
-  }
-}
-
-@layer utilities {
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  .shadow-subtle {
-    box-shadow: var(--shadow-subtle);
-  }
-
-  /* Minimal geometric divider pattern */
-  .geometric-divider {
-    @apply flex items-center justify-center gap-3;
-  }
-
-  .geometric-divider::before,
-  .geometric-divider::after {
-    content: '';
-    @apply h-px w-16 bg-border;
+    font-weight: 700;
   }
 }

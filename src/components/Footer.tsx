@@ -4,28 +4,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground py-10">
+    <footer className="py-12 border-t border-border">
       <div className="container">
-        <div className="flex flex-col items-center text-center">
-          {/* Logo */}
-          <div className="mb-4">
-            <Logo variant="light" />
-          </div>
-
-          {/* Tagline */}
-          <p className="text-background/70 text-sm mb-6">
-            dotSchool Africa — Building practical software engineers.
-          </p>
-
-          {/* Minimal divider */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-8 bg-background/20" />
-            <div className="w-1.5 h-1.5 rounded-full bg-background/30" />
-            <div className="h-px w-8 bg-background/20" />
-          </div>
-
-          {/* Copyright */}
-          <p className="text-xs text-background/50">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <Logo />
+          <p className="text-sm text-muted-foreground">
             © {currentYear} dotSchool. All rights reserved.
           </p>
         </div>
