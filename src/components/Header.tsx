@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Code2, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,31 +33,20 @@ const Header = () => {
           {/* Logo */}
           <a 
             href="#" 
-            className="flex items-center gap-2 group"
+            className="group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
-              isScrolled ? "bg-primary/10" : "bg-primary-foreground/10"
-            }`}>
-              <Code2 className={`w-5 h-5 transition-colors ${
-                isScrolled ? "text-primary" : "text-primary-foreground"
-              }`} />
-            </div>
-            <span className={`text-xl font-heading font-bold transition-colors ${
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            }`}>
-              TechSchool
-            </span>
+            <Logo variant={isScrolled ? "dark" : "light"} />
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <button 
               onClick={() => scrollToSection("about")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
+              className={`text-sm font-medium transition-colors hover:text-secondary ${
                 isScrolled ? "text-foreground" : "text-primary-foreground"
               }`}
             >
@@ -64,7 +54,7 @@ const Header = () => {
             </button>
             <button 
               onClick={() => scrollToSection("courses")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
+              className={`text-sm font-medium transition-colors hover:text-secondary ${
                 isScrolled ? "text-foreground" : "text-primary-foreground"
               }`}
             >
@@ -72,11 +62,19 @@ const Header = () => {
             </button>
             <button 
               onClick={() => scrollToSection("scholarship")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
+              className={`text-sm font-medium transition-colors hover:text-secondary ${
                 isScrolled ? "text-foreground" : "text-primary-foreground"
               }`}
             >
               Scholarship
+            </button>
+            <button 
+              onClick={() => scrollToSection("faq")}
+              className={`text-sm font-medium transition-colors hover:text-secondary ${
+                isScrolled ? "text-foreground" : "text-primary-foreground"
+              }`}
+            >
+              FAQ
             </button>
             <Button 
               variant={isScrolled ? "default" : "hero"}
@@ -127,6 +125,12 @@ const Header = () => {
                 className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
               >
                 Scholarship
+              </button>
+              <button 
+                onClick={() => scrollToSection("faq")}
+                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
+              >
+                FAQ
               </button>
               <Button 
                 variant="terracotta"

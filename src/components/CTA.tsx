@@ -1,28 +1,26 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { useInView } from "@/hooks/use-animations";
 
 const CTA = () => {
   const { ref, isInView } = useInView({ threshold: 0.2 });
 
   return (
-    <section className="py-20 md:py-28 bg-hero-gradient pattern-african relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-hero-gradient relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute top-0 left-0 w-40 h-40 bg-secondary/10 rounded-full blur-2xl animate-float" style={{ animationDelay: "-2s" }} />
-        <div className="absolute bottom-0 right-0 w-60 h-60 bg-primary-foreground/5 rounded-full blur-2xl animate-float" style={{ animationDelay: "-4s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-foreground/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container relative z-10" ref={ref}>
         <div className="max-w-3xl mx-auto text-center">
           <div 
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground/90 text-sm mb-8 transition-all duration-500 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30 text-primary-foreground text-sm mb-8 transition-all duration-500 ${
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <Rocket className="w-4 h-4 text-accent animate-bounce" />
-            <span>Next Cohort Starting Soon</span>
+            <Clock className="w-4 h-4 text-secondary" />
+            <span className="font-semibold">Limited Time — Next Cohort Only</span>
           </div>
 
           <h2 
@@ -32,7 +30,7 @@ const CTA = () => {
             style={{ transitionDelay: "100ms" }}
           >
             Ready to Start Your{" "}
-            <span className="text-gradient">Engineering Journey?</span>
+            <span className="text-secondary">Engineering Journey?</span>
           </h2>
 
           <p 
@@ -41,7 +39,7 @@ const CTA = () => {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            Apply now to secure your spot in the next cohort. With our 90% scholarship, world-class curriculum, and expert mentorship, your future in tech starts here.
+            Apply now to secure your spot in the next cohort. With our 90% scholarship (next cohort only), expert mentorship, and project-based curriculum, your future in tech starts here.
           </p>
 
           <div 
@@ -68,21 +66,14 @@ const CTA = () => {
           </div>
 
           <p 
-            className={`mt-6 text-sm text-primary-foreground/60 transition-all duration-500 ${
+            className={`mt-6 text-sm text-primary-foreground/70 transition-all duration-500 ${
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{ transitionDelay: "400ms" }}
           >
-            Enrollment subject to review and scholarship qualification.
+            90% scholarship available for qualified applicants — next cohort only. Enrollment subject to review.
           </p>
         </div>
-      </div>
-
-      {/* Bottom decorative border */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 flex">
-        <div className="flex-1 bg-accent" />
-        <div className="flex-1 bg-secondary" />
-        <div className="flex-1 bg-primary-foreground/30" />
       </div>
     </section>
   );
