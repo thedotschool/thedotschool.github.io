@@ -9,13 +9,16 @@ export default {
       center: true,
       padding: "1.5rem",
       screens: {
-        "2xl": "1280px",
+        "2xl": "1200px",
       },
     },
     extend: {
       fontFamily: {
         heading: ["Manrope", "sans-serif"],
         body: ["Inter", "sans-serif"],
+      },
+      fontSize: {
+        base: ["16.5px", { lineHeight: "1.6" }],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -26,6 +29,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          light: "hsl(var(--primary-light))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -61,25 +65,30 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        terracotta: {
-          DEFAULT: "hsl(18 60% 50%)",
-          light: "hsl(18 55% 60%)",
-          dark: "hsl(18 65% 40%)",
-        },
-        gold: {
-          DEFAULT: "hsl(42 90% 55%)",
-          light: "hsl(42 85% 65%)",
-          dark: "hsl(42 95% 45%)",
-        },
+        /* Explicit named colors for strict usage */
         indigo: {
-          DEFAULT: "hsl(235 50% 25%)",
-          light: "hsl(235 45% 35%)",
-          dark: "hsl(235 55% 18%)",
+          900: "hsl(232 42% 18%)",
+          700: "hsl(232 38% 28%)",
         },
         sand: {
-          DEFAULT: "hsl(35 30% 97%)",
-          dark: "hsl(35 25% 90%)",
+          50: "hsl(40 30% 98%)",
         },
+        gray: {
+          900: "hsl(220 15% 15%)",
+          600: "hsl(220 10% 45%)",
+        },
+        terracotta: {
+          500: "hsl(18 60% 48%)",
+        },
+        gold: {
+          500: "hsl(42 85% 52%)",
+        },
+      },
+      spacing: {
+        18: "4.5rem",
+        22: "5.5rem",
+        26: "6.5rem",
+        30: "7.5rem",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -87,6 +96,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
         xl: "calc(var(--radius) + 4px)",
         "2xl": "calc(var(--radius) + 8px)",
+      },
+      boxShadow: {
+        card: "0 8px 24px rgba(0,0,0,0.06)",
+        subtle: "0 1px 3px rgba(0,0,0,0.04)",
       },
       keyframes: {
         "accordion-down": {
@@ -98,34 +111,24 @@ export default {
           to: { height: "0" },
         },
         "fade-in": {
-          from: { opacity: "0", transform: "translateY(20px)" },
+          from: { opacity: "0", transform: "translateY(16px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in-up": {
-          from: { opacity: "0", transform: "translateY(30px)" },
+          from: { opacity: "0", transform: "translateY(24px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "scale-in": {
-          from: { opacity: "0", transform: "scale(0.95)" },
+          from: { opacity: "0", transform: "scale(0.96)" },
           to: { opacity: "1", transform: "scale(1)" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        shimmer: {
-          from: { backgroundPosition: "200% 0" },
-          to: { backgroundPosition: "-200% 0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.6s ease-out forwards",
-        "fade-in-up": "fade-in-up 0.8s ease-out forwards",
-        "scale-in": "scale-in 0.5s ease-out forwards",
-        float: "float 6s ease-in-out infinite",
-        shimmer: "shimmer 3s linear infinite",
+        "fade-in": "fade-in 0.5s ease-out forwards",
+        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        "scale-in": "scale-in 0.4s ease-out forwards",
       },
     },
   },

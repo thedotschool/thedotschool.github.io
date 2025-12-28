@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary py-12">
+    <footer className="bg-foreground py-10">
       <div className="container">
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
@@ -13,19 +13,19 @@ const Footer = () => {
           </div>
 
           {/* Tagline */}
-          <p className="text-primary-foreground/80 mb-6">
+          <p className="text-background/70 text-sm mb-6">
             dotSchool Africa — Building practical software engineers.
           </p>
 
-          {/* Decorative divider */}
-          <div className="flex items-center gap-2 mb-6">
-            <div className="h-0.5 w-8 rounded-full bg-secondary/50" />
-            <div className="h-0.5 w-3 rounded-full bg-accent/50" />
-            <div className="h-0.5 w-8 rounded-full bg-primary-foreground/20" />
+          {/* Minimal divider */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-8 bg-background/20" />
+            <div className="w-1.5 h-1.5 rounded-full bg-background/30" />
+            <div className="h-px w-8 bg-background/20" />
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-primary-foreground/60">
+          <p className="text-xs text-background/50">
             © {currentYear} dotSchool. All rights reserved.
           </p>
         </div>

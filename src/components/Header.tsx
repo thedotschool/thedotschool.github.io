@@ -24,8 +24,8 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-background/95 backdrop-blur-md shadow-soft py-3" 
-          : "bg-transparent py-5"
+          ? "bg-background/98 backdrop-blur-sm border-b border-border py-3" 
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container">
@@ -33,7 +33,6 @@ const Header = () => {
           {/* Logo */}
           <a 
             href="#" 
-            className="group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
@@ -44,40 +43,20 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <button 
-              onClick={() => scrollToSection("about")}
-              className={`text-sm font-medium transition-colors hover:text-secondary ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
-            >
-              About
-            </button>
-            <button 
-              onClick={() => scrollToSection("courses")}
-              className={`text-sm font-medium transition-colors hover:text-secondary ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
-            >
-              Courses
-            </button>
-            <button 
-              onClick={() => scrollToSection("scholarship")}
-              className={`text-sm font-medium transition-colors hover:text-secondary ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
-            >
-              Scholarship
-            </button>
-            <button 
-              onClick={() => scrollToSection("faq")}
-              className={`text-sm font-medium transition-colors hover:text-secondary ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
-            >
-              FAQ
-            </button>
+            {["about", "courses", "scholarship", "faq"].map((section) => (
+              <button 
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className={`text-sm font-medium transition-colors relative group ${
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
+              </button>
+            ))}
             <Button 
-              variant={isScrolled ? "default" : "hero"}
+              variant={isScrolled ? "default" : "heroOutline"}
               size="sm"
               asChild
             >
@@ -100,41 +79,26 @@ const Header = () => {
                 : "text-primary-foreground hover:bg-primary-foreground/10"
             }`}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </nav>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 p-4 rounded-xl bg-card border border-border shadow-elevated animate-scale-in">
-            <div className="flex flex-col gap-2">
-              <button 
-                onClick={() => scrollToSection("about")}
-                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
-              >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection("courses")}
-                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
-              >
-                Courses
-              </button>
-              <button 
-                onClick={() => scrollToSection("scholarship")}
-                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
-              >
-                Scholarship
-              </button>
-              <button 
-                onClick={() => scrollToSection("faq")}
-                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
-              >
-                FAQ
-              </button>
+          <div className="md:hidden mt-4 p-4 rounded-lg bg-card border border-border shadow-card animate-scale-in">
+            <div className="flex flex-col gap-1">
+              {["about", "courses", "scholarship", "faq"].map((section) => (
+                <button 
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </button>
+              ))}
               <Button 
-                variant="terracotta"
-                className="mt-2"
+                variant="default"
+                className="mt-3"
                 asChild
               >
                 <a 
