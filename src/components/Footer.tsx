@@ -1,46 +1,37 @@
-import Logo from "./Logo";
+import { Code2 } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const links = [
-    { label: "About", id: "about" },
-    { label: "Courses", id: "courses" },
-    { label: "Scholarship", id: "scholarship" },
-    { label: "FAQ", id: "faq" },
-  ];
-
   return (
-    <footer className="py-12 border-t border-border">
+    <footer className="bg-primary py-12">
       <div className="container">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div className="flex flex-col gap-4">
-            <Logo />
-            <p className="text-sm text-muted-foreground max-w-xs">
-              Practical software engineering education for beginners and early-career developers.
-            </p>
+        <div className="flex flex-col items-center text-center">
+          {/* Logo */}
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+              <Code2 className="w-5 h-5 text-accent" />
+            </div>
+            <span className="text-xl font-heading font-bold text-primary-foreground">
+              TechSchool
+            </span>
           </div>
-          
-          <div className="flex flex-wrap gap-6">
-            {links.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+
+          {/* Tagline */}
+          <p className="text-primary-foreground/70 mb-6">
+            Built for future software engineers
+          </p>
+
+          {/* Decorative divider */}
+          <div className="flex items-center gap-2 mb-6">
+            <div className="h-0.5 w-8 rounded-full bg-secondary/50" />
+            <div className="h-0.5 w-3 rounded-full bg-accent/50" />
+            <div className="h-0.5 w-8 rounded-full bg-primary-foreground/20" />
           </div>
-        </div>
-        
-        <div className="mt-8 pt-8 border-t border-border">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} The dotSchool. All rights reserved.
+
+          {/* Copyright */}
+          <p className="text-sm text-primary-foreground/50">
+            © {currentYear} TechSchool. All rights reserved.
           </p>
         </div>
       </div>

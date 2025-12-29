@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   Accordion,
@@ -5,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ArrowRight, Clock, Sparkles } from "lucide-react";
+import { Clock, ChevronDown, ArrowRight, Check } from "lucide-react";
 
 interface CourseOutline {
   week: string;
@@ -18,9 +19,31 @@ interface CourseCardProps {
   duration: string;
   originalPrice: string;
   currentPrice: string;
+  discount: string;
   outline: CourseOutline[];
-  isNew?: boolean;
+  color: "indigo" | "terracotta" | "gold";
 }
+
+const colorStyles = {
+  indigo: {
+    badge: "bg-primary/10 text-primary",
+    border: "border-primary/20 hover:border-primary/40",
+    accent: "text-primary",
+    button: "default" as const,
+  },
+  terracotta: {
+    badge: "bg-secondary/10 text-secondary",
+    border: "border-secondary/20 hover:border-secondary/40",
+    accent: "text-secondary",
+    button: "terracotta" as const,
+  },
+  gold: {
+    badge: "bg-accent/20 text-accent-foreground",
+    border: "border-accent/30 hover:border-accent/50",
+    accent: "text-gold-dark",
+    button: "gold" as const,
+  },
+};
 
 const CourseCard = ({
   title,
@@ -28,63 +51,70 @@ const CourseCard = ({
   duration,
   originalPrice,
   currentPrice,
+  discount,
   outline,
-  isNew,
+  color,
 }: CourseCardProps) => {
+  const styles = colorStyles[color];
+
   return (
-    <div className="rounded-lg bg-card border border-border overflow-hidden flex flex-col">
-      <div className="p-6 flex-1 flex flex-col">
+    <div className={`group rounded-2xl bg-card border-2 ${styles.border} shadow-card hover:shadow-elevated transition-all duration-300 overflow-hidden`}>
+      {/* Discount badge */}
+      <div className="bg-accent/10 px-6 py-3 flex items-center justify-between">
+        <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent-foreground">
+          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-accent text-accent-foreground text-xs">✦</span>
+          {discount} Scholarship
+        </span>
+        <span className="text-xs text-muted-foreground">Limited spots</span>
+      </div>
+
+      <div className="p-6 md:p-8">
         {/* Header */}
-        <div className="mb-4">
-          <div className="flex items-start justify-between gap-3 mb-2">
-            <h3 className="text-xl font-semibold text-foreground">
-              {title}
-            </h3>
-            {isNew && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-primary/10 text-primary shrink-0">
-                <Sparkles className="w-3 h-3" />
-                NEW
-              </span>
-            )}
-          </div>
-          <p className="text-muted-foreground text-sm leading-relaxed">
+        <div className="mb-6">
+          <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3">
+            {title}
+          </h3>
+          <p className="text-muted-foreground leading-relaxed">
             {description}
           </p>
         </div>
 
         {/* Duration */}
-        <div className="flex items-center gap-2 text-sm text-foreground mb-4">
-          <Clock className="w-4 h-4 text-muted-foreground" />
-          {duration}
+        <div className="flex items-center gap-2 mb-6">
+          <Clock className={`w-5 h-5 ${styles.accent}`} />
+          <span className="text-sm font-medium text-foreground">{duration}</span>
         </div>
 
         {/* Pricing */}
         <div className="flex items-baseline gap-3 mb-6 pb-6 border-b border-border">
-          <span className="text-2xl font-bold text-foreground">
+          <span className="text-3xl md:text-4xl font-heading font-bold text-foreground">
             {currentPrice}
           </span>
-          <span className="text-muted-foreground line-through text-sm">
+          <span className="text-lg text-muted-foreground line-through">
             {originalPrice}
-          </span>
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-scholarship/10 text-scholarship-foreground">
-            90% off
           </span>
         </div>
 
         {/* Course outline accordion */}
-        <Accordion type="single" collapsible className="mb-6 flex-1">
+        <Accordion type="single" collapsible className="mb-6">
           <AccordionItem value="outline" className="border-none">
-            <AccordionTrigger className="text-sm font-medium text-foreground hover:no-underline py-0">
-              View course outline
+            <AccordionTrigger className="text-sm font-semibold text-foreground hover:no-underline py-3 px-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+              <span className="flex items-center gap-2">
+                <Check className={`w-4 h-4 ${styles.accent}`} />
+                View 12-Week Course Outline
+              </span>
             </AccordionTrigger>
             <AccordionContent className="pt-4">
               <div className="space-y-2">
-                {outline.map((item, idx) => (
-                  <div key={idx} className="flex gap-3 text-sm">
-                    <span className="font-medium text-foreground whitespace-nowrap min-w-[72px]">
+                {outline.map((item, index) => (
+                  <div 
+                    key={index}
+                    className="flex gap-3 p-3 rounded-lg bg-background hover:bg-muted/30 transition-colors"
+                  >
+                    <span className={`text-sm font-semibold ${styles.accent} whitespace-nowrap`}>
                       {item.week}
                     </span>
-                    <span className="text-muted-foreground">
+                    <span className="text-sm text-muted-foreground">
                       {item.topic}
                     </span>
                   </div>
@@ -95,14 +125,19 @@ const CourseCard = ({
         </Accordion>
 
         {/* CTA Button */}
-        <Button className="w-full group mt-auto" asChild>
+        <Button 
+          variant={styles.button}
+          size="lg" 
+          className="w-full" 
+          asChild
+        >
           <a 
             href="https://forms.google.com/your-form-link" 
             target="_blank" 
             rel="noopener noreferrer"
           >
-            Apply Now
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            Enroll Now
+            <ArrowRight className="w-4 h-4" />
           </a>
         </Button>
       </div>
