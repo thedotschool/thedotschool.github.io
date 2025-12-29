@@ -20,6 +20,13 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "courses", label: "Courses" },
+    { id: "scholarship", label: "Scholarship" },
+    { id: "faq", label: "FAQ" },
+  ];
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
@@ -30,7 +37,6 @@ const Header = () => {
     >
       <div className="container">
         <nav className="flex items-center justify-between h-16">
-          {/* Logo */}
           <a 
             href="#" 
             onClick={(e) => {
@@ -38,18 +44,18 @@ const Header = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <Logo />
+            <Logo size="sm" />
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {["about", "courses", "faq"].map((section) => (
+            {navItems.map((item) => (
               <button 
-                key={section}
-                onClick={() => scrollToSection(section)}
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {item.label}
               </button>
             ))}
             <Button size="sm" asChild>
@@ -67,6 +73,7 @@ const Header = () => {
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 text-foreground"
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -75,17 +82,17 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-2">
-              {["about", "courses", "faq"].map((section) => (
+            <div className="flex flex-col gap-1">
+              {navItems.map((item) => (
                 <button 
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className="text-left py-2 text-foreground hover:text-primary transition-colors"
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left py-2.5 text-foreground hover:text-primary transition-colors"
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {item.label}
                 </button>
               ))}
-              <Button className="mt-2" asChild>
+              <Button className="mt-3" asChild>
                 <a 
                   href="https://forms.google.com/your-form-link" 
                   target="_blank" 

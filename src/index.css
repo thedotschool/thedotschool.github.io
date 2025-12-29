@@ -6,78 +6,85 @@
 
 @layer base {
   :root {
-    /* Clean, minimal tech color system */
+    /* Modern tech color system - clean and professional */
     --background: 0 0% 100%;
-    --foreground: 220 20% 10%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Single accent - Modern blue */
-    --primary: 224 76% 53%;
+    /* Primary accent - modern indigo/blue */
+    --primary: 226 71% 40%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - subtle */
+    /* Secondary - light gray sections */
     --secondary: 220 14% 96%;
-    --secondary-foreground: 220 20% 10%;
+    --secondary-foreground: 222 47% 11%;
 
     /* Muted grays */
-    --muted: 220 14% 97%;
+    --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
 
-    --accent: 224 76% 53%;
+    --accent: 226 71% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 90%;
-    --input: 220 13% 90%;
-    --ring: 224 76% 53%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 226 71% 40%;
 
     --radius: 0.5rem;
 
+    /* Scholarship badge - warm gold */
+    --badge-scholarship: 43 96% 56%;
+    --badge-scholarship-foreground: 222 47% 11%;
+
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 220 9% 46%;
-    --sidebar-primary: 224 76% 53%;
+    --sidebar-primary: 226 71% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 220 20% 10%;
-    --sidebar-border: 220 13% 90%;
-    --sidebar-ring: 224 76% 53%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 226 71% 40%;
   }
 
   .dark {
-    --background: 220 20% 8%;
+    --background: 222 47% 6%;
     --foreground: 0 0% 98%;
 
-    --card: 220 20% 10%;
+    --card: 222 47% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 20% 10%;
+    --popover: 222 47% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 224 76% 58%;
+    --primary: 226 71% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 16%;
+    --secondary: 222 30% 14%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 15% 14%;
+    --muted: 222 30% 12%;
     --muted-foreground: 220 9% 60%;
 
-    --accent: 224 76% 58%;
+    --accent: 226 71% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 224 76% 58%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 226 71% 50%;
+
+    --badge-scholarship: 43 96% 50%;
+    --badge-scholarship-foreground: 222 47% 11%;
   }
 }
 
@@ -88,18 +95,25 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 17px;
     line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.25;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.2;
     font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   h1 {
     font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
