@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Courses from "@/components/Courses";
 import Testimonials from "@/components/Testimonials";
 import Scholarship from "@/components/Scholarship";
+import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -17,7 +18,7 @@ const Index = () => {
           name="description" 
           content="Learn practical software engineering skills with our 12-week programs. From Python to Node.js backend development. 90% scholarship available for qualified students." 
         />
-        <meta name="keywords" content="software engineering, coding bootcamp, Africa tech, Python, Django, Node.js, backend development, programming courses, The dotSchool" />
+        <meta name="keywords" content="software engineering, coding bootcamp, Africa tech, Python, Django, Node.js, React, frontend development, backend development, programming courses, The dotSchool" />
         <link rel="canonical" href="https://thedotschool.africa" />
       </Helmet>
 
@@ -29,6 +30,7 @@ const Index = () => {
           <Courses />
           <Testimonials />
           <Scholarship />
+          <FAQ />
           <CTA />
         </main>
         <Footer />
