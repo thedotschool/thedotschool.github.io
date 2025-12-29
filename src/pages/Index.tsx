@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Courses from "@/components/Courses";
+import Scholarship from "@/components/Scholarship";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
@@ -12,10 +13,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>dotSchool — Learn Software Engineering</title>
+        <title>The dotSchool — Learn Software Engineering</title>
         <meta 
           name="description" 
-          content="dotSchool is a 12-week program that teaches practical software engineering skills. 90% scholarship available for the next cohort." 
+          content="The dotSchool is a 12-week program that teaches practical software engineering skills. 90% scholarship available for the next cohort." 
         />
       </Helmet>
 
@@ -25,6 +26,7 @@ const Index = () => {
           <Hero />
           <About />
           <Courses />
+          <Scholarship />
           <Testimonials />
           <FAQ />
           <CTA />
