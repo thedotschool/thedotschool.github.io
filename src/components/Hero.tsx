@@ -93,7 +93,7 @@ const Hero = () => {
             <div className="text-sm text-background/80 mt-1">Week Programs</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-heading font-bold text-accent">3</div>
+            <div className="text-3xl md:text-4xl font-heading font-bold text-accent">4</div>
             <div className="text-sm text-background/80 mt-1">Expert Courses</div>
           </div>
           <div className="text-center">

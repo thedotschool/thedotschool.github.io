@@ -1,9 +1,10 @@
 import { Quote } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const testimonials = [
   {
     name: "Chinedu Okonkwo",
-    role: "Software Engineer, Paystack",
+    role: "Software Engineer",
     quote: "This program changed my life. I went from writing my first line of code to building production APIs in just 12 weeks.",
     image: null,
   },
@@ -15,7 +16,7 @@ const testimonials = [
   },
   {
     name: "Oluwaseun Adeyemi",
-    role: "Junior Developer, Flutterwave",
+    role: "Junior Developer",
     quote: "Best decision I ever made. The curriculum is practical and job-focused.",
     image: null,
   },
@@ -32,7 +33,7 @@ const Testimonials = () => {
     <section id="testimonials" className="py-20 md:py-28 bg-background pattern-african-dark">
       <div className="container">
         {/* Section header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent-foreground text-sm font-medium mb-4">
             Success Stories
           </span>
@@ -43,42 +44,45 @@ const Testimonials = () => {
           <p className="text-muted-foreground text-lg">
             Real stories from students who transformed their careers
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Testimonials grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <AnimatedSection
               key={index}
-              className="group relative bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-primary/30 shadow-card hover:shadow-elevated transition-all duration-300"
+              animation={index % 2 === 0 ? "slide-left" : "slide-right"}
+              delay={index * 100}
             >
-              {/* Quote icon */}
-              <div className="absolute -top-3 -left-3 w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                <Quote className="w-5 h-5 text-accent" />
-              </div>
-
-              {/* Quote text */}
-              <blockquote className="text-foreground leading-relaxed mb-6 pt-4">
-                "{testimonial.quote}"
-              </blockquote>
-
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-lg font-heading font-bold text-primary">
-                    {testimonial.name.charAt(0)}
-                  </span>
+              <div className="group relative bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-primary/30 shadow-card hover:shadow-elevated transition-all duration-300 h-full">
+                {/* Quote icon */}
+                <div className="absolute -top-3 -left-3 w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Quote className="w-5 h-5 text-accent" />
                 </div>
-                <div>
-                  <div className="font-semibold text-foreground">
-                    {testimonial.name}
+
+                {/* Quote text */}
+                <blockquote className="text-foreground leading-relaxed mb-6 pt-4">
+                  "{testimonial.quote}"
+                </blockquote>
+
+                {/* Author */}
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                    <span className="text-lg font-heading font-bold text-primary">
+                      {testimonial.name.charAt(0)}
+                    </span>
                   </div>
-                  <div className="text-sm text-muted-foreground">
-                    {testimonial.role}
+                  <div>
+                    <div className="font-semibold text-foreground">
+                      {testimonial.name}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {testimonial.role}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

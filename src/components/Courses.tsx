@@ -1,4 +1,5 @@
 import CourseCard from "./CourseCard";
+import AnimatedSection from "./AnimatedSection";
 
 const courses = [
   {
@@ -66,6 +67,29 @@ const courses = [
       { week: "Week 12", topic: "Capstone Backend Project" },
     ],
   },
+  {
+    title: "Frontend Web Development",
+    description: "Build modern, responsive, and interactive web interfaces using industry-standard frontend tools including React and modern JavaScript.",
+    duration: "12 Weeks",
+    originalPrice: "₦100,000",
+    currentPrice: "₦10,000",
+    discount: "90%",
+    color: "indigo" as const,
+    outline: [
+      { week: "Week 1", topic: "Onboarding, Developer Mindset & PC Setup" },
+      { week: "Week 2", topic: "Shell Basics & Systems Engineering" },
+      { week: "Week 3", topic: "Git & GitHub (Version Control)" },
+      { week: "Week 4", topic: "JavaScript Fundamentals for Frontend (Syntax, Functions, DOM Basics)" },
+      { week: "Week 5", topic: "Modern JavaScript (ES6+, Modules, Async & Fetch)" },
+      { week: "Week 6", topic: "Web Fundamentals (HTML, CSS & Responsive Design Essentials)" },
+      { week: "Week 7", topic: "React Fundamentals (Components, JSX, Props & State)" },
+      { week: "Week 8", topic: "React Hooks & Component Lifecycle" },
+      { week: "Week 9", topic: "Routing, Layouts & State Management" },
+      { week: "Week 10", topic: "Consuming APIs, Forms & Authentication Flows" },
+      { week: "Week 11", topic: "Performance, Reusability & Frontend Best Practices" },
+      { week: "Week 12", topic: "Capstone React Project & Review" },
+    ],
+  },
 ];
 
 const Courses = () => {
@@ -73,7 +97,7 @@ const Courses = () => {
     <section id="courses" className="py-20 md:py-28 bg-muted/30">
       <div className="container">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/15 text-accent-foreground text-sm font-medium mb-4">
             Our Programs
           </div>
@@ -82,14 +106,20 @@ const Courses = () => {
             <span className="text-gradient">Learning Path</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Whether you're starting from scratch or leveling up your backend skills, we have a program designed for your goals.
+            Whether you're starting from scratch or leveling up your skills, we have a program designed for your goals.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Course cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {courses.map((course, index) => (
-            <CourseCard key={course.title} {...course} />
+            <AnimatedSection
+              key={course.title}
+              animation="scale-in"
+              delay={index * 100}
+            >
+              <CourseCard {...course} />
+            </AnimatedSection>
           ))}
         </div>
       </div>
