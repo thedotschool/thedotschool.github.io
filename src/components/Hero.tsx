@@ -73,15 +73,15 @@ const Hero = () => {
         </div>
 
         {/* Scholarship note */}
-        <p 
-          className="mt-6 text-sm text-background/80 opacity-0 animate-fade-in"
+        <div 
+          className="mt-6 inline-flex items-center gap-3 px-5 py-3 rounded-full bg-accent/20 border border-accent/30 backdrop-blur-sm opacity-0 animate-fade-in"
           style={{ animationDelay: "1s" }}
         >
-          <span className="inline-flex items-center gap-1">
-            <GraduationCap className="w-4 h-4 text-accent" />
-            <strong className="text-accent">90% scholarship</strong> available for qualified students
+          <GraduationCap className="w-5 h-5 text-accent" />
+          <span className="text-sm text-background">
+            <strong className="text-accent">90% scholarship</strong> for first <strong className="text-background">100 students</strong> per cohort
           </span>
-        </p>
+        </div>
 
         {/* Stats */}
         <div 
