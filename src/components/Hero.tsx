@@ -53,12 +53,12 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Image placeholder - students learning */}
+          {/* Students learning image */}
           <div className="relative">
             <div className="aspect-[4/3] rounded-lg bg-muted overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&crop=faces"
-                alt="Students collaborating on coding projects"
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop"
+                alt="Students collaborating on software development projects"
                 className="w-full h-full object-cover"
               />
             </div>
