@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Code2, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,7 +8,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -20,72 +20,54 @@ const Header = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-background/95 backdrop-blur-md shadow-soft py-3" 
-          : "bg-transparent py-5"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="container">
-        <nav className="flex items-center justify-between">
+        <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a 
-            href="#" 
-            className="flex items-center gap-2 group"
+          <a
+            href="#"
+            className="flex flex-col items-start leading-none"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
-              isScrolled ? "bg-primary/10" : "bg-primary-foreground/10"
-            }`}>
-              <Code2 className={`w-5 h-5 transition-colors ${
-                isScrolled ? "text-primary" : "text-primary-foreground"
-              }`} />
-            </div>
-            <span className={`text-xl font-heading font-bold transition-colors ${
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            }`}>
-              TechSchool
+            <span className="text-[10px] font-body font-medium text-muted-foreground tracking-wide uppercase">
+              The
+            </span>
+            <span className="text-xl font-heading font-bold text-foreground">
+              <span className="text-primary">.</span>school
             </span>
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <button 
-              onClick={() => scrollToSection("about")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
-            >
-              About
-            </button>
-            <button 
+            <button
               onClick={() => scrollToSection("courses")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Courses
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("scholarship")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Scholarship
             </button>
-            <Button 
-              variant={isScrolled ? "default" : "hero"}
-              size="sm"
-              asChild
+            <button
+              onClick={() => scrollToSection("testimonials")}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              <a 
-                href="https://forms.google.com/your-form-link" 
-                target="_blank" 
+              Testimonials
+            </button>
+            <Button size="sm" asChild>
+              <a
+                href="https://forms.gle/FYkPynguzYwhhHDz5"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 Apply Now
@@ -94,13 +76,9 @@ const Header = () => {
           </div>
 
           {/* Mobile menu button */}
-          <button 
+          <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              isScrolled 
-                ? "text-foreground hover:bg-muted" 
-                : "text-primary-foreground hover:bg-primary-foreground/10"
-            }`}
+            className="md:hidden p-2 text-foreground"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -108,34 +86,30 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 p-4 rounded-xl bg-card border border-border shadow-elevated animate-scale-in">
+          <div className="md:hidden py-4 border-t border-border bg-background">
             <div className="flex flex-col gap-2">
-              <button 
-                onClick={() => scrollToSection("about")}
-                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
-              >
-                About
-              </button>
-              <button 
+              <button
                 onClick={() => scrollToSection("courses")}
-                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
+                className="text-left py-3 px-4 text-foreground hover:bg-secondary rounded-lg transition-colors"
               >
                 Courses
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection("scholarship")}
-                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
+                className="text-left py-3 px-4 text-foreground hover:bg-secondary rounded-lg transition-colors"
               >
                 Scholarship
               </button>
-              <Button 
-                variant="terracotta"
-                className="mt-2"
-                asChild
+              <button
+                onClick={() => scrollToSection("testimonials")}
+                className="text-left py-3 px-4 text-foreground hover:bg-secondary rounded-lg transition-colors"
               >
-                <a 
-                  href="https://forms.google.com/your-form-link" 
-                  target="_blank" 
+                Testimonials
+              </button>
+              <Button className="mt-2" asChild>
+                <a
+                  href="https://forms.gle/FYkPynguzYwhhHDz5"
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   Apply Now
