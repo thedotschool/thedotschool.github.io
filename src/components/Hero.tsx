@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, GraduationCap, Users, Sparkles } from "lucide-react";
+import CountdownTimer from "./CountdownTimer";
 
 const FORM_LINK = "https://forms.gle/FYkPynguzYwhhHDz5";
 
@@ -41,7 +42,7 @@ const Hero = () => {
           className="mt-6 text-lg md:text-xl text-background/90 max-w-2xl opacity-0 animate-fade-in"
           style={{ animationDelay: "0.6s" }}
         >
-          Learn practical software engineering skills — from foundations to real-world backend development.
+          Learn practical software engineering skills, from foundations to real-world frontend and backend development.
         </p>
 
         {/* CTA Buttons */}
@@ -79,14 +80,22 @@ const Hero = () => {
         >
           <GraduationCap className="w-5 h-5 text-accent" />
           <span className="text-sm text-background">
-            <strong className="text-accent">90% scholarship</strong> for first <strong className="text-background">100 students</strong> per cohort
+            <strong className="text-accent">90% scholarship</strong> for first <strong className="text-background">100 students</strong> per course
           </span>
+        </div>
+
+        {/* Countdown Timer */}
+        <div 
+          className="mt-8 opacity-0 animate-fade-in"
+          style={{ animationDelay: "1.1s" }}
+        >
+          <CountdownTimer />
         </div>
 
         {/* Stats */}
         <div 
-          className="grid grid-cols-3 gap-8 md:gap-16 mt-16 pt-16 border-t border-background/10 opacity-0 animate-fade-in"
-          style={{ animationDelay: "1.2s" }}
+          className="grid grid-cols-3 gap-8 md:gap-16 mt-12 pt-12 border-t border-background/10 opacity-0 animate-fade-in"
+          style={{ animationDelay: "1.3s" }}
         >
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-heading font-bold text-accent">12</div>

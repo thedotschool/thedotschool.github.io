@@ -13,11 +13,11 @@ const faqs = [
   },
   {
     question: "How does the 90% scholarship work?",
-    answer: "Thanks to our community contributors, the first 100 students in each cohort have their scholarships fully sponsored. This reduces the course fee from ₦100,000 to just ₦10,000. Simply apply through our enrollment form and we'll review your application."
+    answer: "Thanks to our community contributors, the first 100 students in each course have their scholarships fully sponsored. This reduces the course fee from ₦100,000 to just ₦10,000. Simply apply through our enrollment form and we will review your application."
   },
   {
     question: "What happens after I apply?",
-    answer: "Once you submit your application, our team will review it within 2-3 business days. If approved for the scholarship, you'll receive an email with payment instructions and your cohort start date."
+    answer: "Once you submit your application, our team will review it within 2-3 business days. If approved for the scholarship, you will receive an email with payment instructions and your course start date."
   },
   {
     question: "How are the classes delivered?",
@@ -25,15 +25,15 @@ const faqs = [
   },
   {
     question: "What if I can't keep up with the pace?",
-    answer: "We understand everyone learns differently. Our instructors ensure you truly understand each concept before moving on. You'll also have access to recorded sessions to review at your own pace, plus dedicated office hours for extra help."
+    answer: "We understand everyone learns differently. Our instructors ensure you truly understand each concept before moving on. You will also have access to recorded sessions to review at your own pace, plus dedicated office hours for extra help."
   },
   {
     question: "Will I get a certificate after completing the course?",
-    answer: "Yes! Upon successful completion of the program and your capstone project, you'll receive a certificate of completion. More importantly, you'll have a portfolio of real projects to showcase to potential employers."
+    answer: "Yes! Upon successful completion of the program and your capstone project, you will receive a certificate of completion. More importantly, you will have a portfolio of real projects to showcase to potential employers."
   },
   {
     question: "What equipment do I need?",
-    answer: "You'll need a laptop (Windows, Mac, or Linux) with at least 4GB RAM and a stable internet connection. We'll guide you through setting up all the necessary software during the first week."
+    answer: "You will need a laptop (Windows, Mac, or Linux) with at least 4GB RAM and a stable internet connection. We will guide you through setting up all the necessary software during the first week."
   },
   {
     question: "Can I take multiple courses?",
