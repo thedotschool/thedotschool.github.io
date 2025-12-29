@@ -111,7 +111,7 @@ const Courses = () => {
         </AnimatedSection>
 
         {/* Course cards grid */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
           {courses.map((course, index) => (
             <AnimatedSection
               key={course.title}

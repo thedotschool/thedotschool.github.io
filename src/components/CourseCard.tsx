@@ -68,10 +68,10 @@ const CourseCard = ({
         <span className="text-xs text-muted-foreground">Limited spots</span>
       </div>
 
-      <div className="p-6 md:p-8">
+      <div className="p-5 md:p-6">
         {/* Header */}
         <div className="mb-6">
-          <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3">
+          <h3 className="text-lg md:text-xl font-heading font-bold text-foreground mb-2">
             {title}
           </h3>
           <p className="text-muted-foreground leading-relaxed">
@@ -86,11 +86,11 @@ const CourseCard = ({
         </div>
 
         {/* Pricing */}
-        <div className="flex items-baseline gap-3 mb-6 pb-6 border-b border-border">
-          <span className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+        <div className="flex items-baseline gap-3 mb-5 pb-5 border-b border-border">
+          <span className="text-2xl md:text-3xl font-heading font-bold text-foreground">
             {currentPrice}
           </span>
-          <span className="text-lg text-muted-foreground line-through">
+          <span className="text-base text-muted-foreground line-through">
             {originalPrice}
           </span>
         </div>
