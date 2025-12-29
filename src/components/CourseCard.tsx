@@ -132,7 +132,7 @@ const CourseCard = ({
           asChild
         >
           <a 
-            href="https://forms.google.com/your-form-link" 
+            href="https://forms.gle/FYkPynguzYwhhHDz5" 
             target="_blank" 
             rel="noopener noreferrer"
           >
