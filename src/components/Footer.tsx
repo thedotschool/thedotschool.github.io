@@ -1,4 +1,4 @@
-import { Code2 } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,13 +8,8 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
-              <Code2 className="w-5 h-5 text-accent" />
-            </div>
-            <span className="text-xl font-heading font-bold text-primary-foreground">
-              TechSchool
-            </span>
+          <div className="mb-4">
+            <Logo variant="light" size="lg" />
           </div>
 
           {/* Tagline */}
@@ -31,7 +26,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-sm text-primary-foreground/50">
-            © {currentYear} TechSchool. All rights reserved.
+            © {currentYear} The dotSchool. All rights reserved.
           </p>
         </div>
       </div>

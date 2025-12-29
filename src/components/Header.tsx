@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Code2, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Logo from "@/components/Logo";
+
+const FORM_LINK = "https://forms.gle/FYkPynguzYwhhHDz5";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,7 +27,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? "bg-background/95 backdrop-blur-md shadow-soft py-3" 
-          : "bg-transparent py-5"
+          : "bg-primary/80 backdrop-blur-sm py-5"
       }`}
     >
       <div className="container">
@@ -38,42 +41,47 @@ const Header = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
-              isScrolled ? "bg-primary/10" : "bg-primary-foreground/10"
-            }`}>
-              <Code2 className={`w-5 h-5 transition-colors ${
-                isScrolled ? "text-primary" : "text-primary-foreground"
-              }`} />
-            </div>
-            <span className={`text-xl font-heading font-bold transition-colors ${
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            }`}>
-              TechSchool
-            </span>
+            <Logo variant={isScrolled ? "dark" : "light"} size="md" />
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <button 
               onClick={() => scrollToSection("about")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-primary-foreground/90 hover:text-primary-foreground"
               }`}
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection("courses")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-primary-foreground/90 hover:text-primary-foreground"
               }`}
             >
               Courses
             </button>
             <button 
+              onClick={() => scrollToSection("testimonials")}
+              className={`text-sm font-medium transition-colors ${
+                isScrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-primary-foreground/90 hover:text-primary-foreground"
+              }`}
+            >
+              Testimonials
+            </button>
+            <button 
               onClick={() => scrollToSection("scholarship")}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-primary-foreground/90 hover:text-primary-foreground"
               }`}
             >
               Scholarship
@@ -84,7 +92,7 @@ const Header = () => {
               asChild
             >
               <a 
-                href="https://forms.google.com/your-form-link" 
+                href={FORM_LINK}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -123,6 +131,12 @@ const Header = () => {
                 Courses
               </button>
               <button 
+                onClick={() => scrollToSection("testimonials")}
+                className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
+              >
+                Testimonials
+              </button>
+              <button 
                 onClick={() => scrollToSection("scholarship")}
                 className="text-left py-3 px-4 rounded-lg text-foreground hover:bg-muted transition-colors font-medium"
               >
@@ -134,7 +148,7 @@ const Header = () => {
                 asChild
               >
                 <a 
-                  href="https://forms.google.com/your-form-link" 
+                  href={FORM_LINK}
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
