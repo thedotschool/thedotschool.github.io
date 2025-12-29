@@ -1,95 +1,64 @@
-import CourseCard from "./CourseCard";
+import { Clock } from "lucide-react";
 
 const courses = [
   {
     title: "Introduction to Software Engineering",
-    description: "Perfect for complete beginners. Learn programming fundamentals, version control, Python, databases, and build your first web application with Django.",
     duration: "12 Weeks",
-    originalPrice: "₦100,000",
-    currentPrice: "₦10,000",
-    discount: "90%",
-    color: "indigo" as const,
-    outline: [
-      { week: "Week 1", topic: "Onboarding, Developer Mindset & PC Setup" },
-      { week: "Week 2", topic: "Shell Basics & Systems Engineering" },
-      { week: "Week 3", topic: "Git & GitHub (Version Control)" },
-      { week: "Week 4", topic: "Python Basics" },
-      { week: "Week 5", topic: "Python Data Structures" },
-      { week: "Week 6", topic: "Conditions, Booleans, Loops & Iterations" },
-      { week: "Week 7", topic: "Functions, Modules & Intro to OOP" },
-      { week: "Week 8", topic: "Files, OS Module & Exceptions" },
-      { week: "Week 9", topic: "Databases & SQL Fundamentals" },
-      { week: "Week 10", topic: "Intro to Web Development & Django" },
-      { week: "Week 11", topic: "Django Models, Views & Templates" },
-      { week: "Week 12", topic: "Final Project & Review" },
-    ],
+    description:
+      "Perfect for complete beginners. Learn programming fundamentals, version control, Python, databases, and build your first web application.",
   },
   {
-    title: "Backend Web Development (Python)",
-    description: "Master backend development with Python and Django. Build production-ready REST APIs, handle authentication, and deploy scalable applications.",
+    title: "Backend Web Development (Python & Django)",
     duration: "12 Weeks",
-    originalPrice: "₦100,000",
-    currentPrice: "₦10,000",
-    discount: "90%",
-    color: "terracotta" as const,
-    outline: [
-      { week: "Week 1–3", topic: "Common Engineering Foundations" },
-      { week: "Week 4", topic: "Object-Oriented Programming (OOP) in Python" },
-      { week: "Week 5", topic: "Django Architecture & Project Structure" },
-      { week: "Week 6", topic: "Models, ORM & Database Design" },
-      { week: "Week 7", topic: "REST APIs & Django REST Framework" },
-      { week: "Week 8", topic: "Authentication & Authorization" },
-      { week: "Week 9", topic: "Filtering, Pagination & Optimization" },
-      { week: "Week 10", topic: "Caching, Performance & Security" },
-      { week: "Week 11", topic: "Testing & Documentation" },
-      { week: "Week 12", topic: "Capstone Backend Project" },
-    ],
+    description:
+      "Master backend development with Python and Django. Build production-ready REST APIs, handle authentication, and deploy scalable applications.",
   },
   {
     title: "Backend Web Development (Node.js)",
-    description: "Become a Node.js backend developer. Learn Express.js, build REST APIs, implement authentication, and create scalable server-side applications.",
     duration: "12 Weeks",
-    originalPrice: "₦100,000",
-    currentPrice: "₦10,000",
-    discount: "90%",
-    color: "gold" as const,
-    outline: [
-      { week: "Week 1–3", topic: "Common Engineering Foundations" },
-      { week: "Week 4", topic: "JavaScript Fundamentals for Backend" },
-      { week: "Week 5", topic: "Node.js Runtime & Project Structure" },
-      { week: "Week 6", topic: "Express.js & REST APIs" },
-      { week: "Week 7", topic: "Databases & Data Modeling" },
-      { week: "Week 8", topic: "Authentication & Authorization" },
-      { week: "Week 9", topic: "Middleware & Error Handling" },
-      { week: "Week 10", topic: "Performance, Caching & Security" },
-      { week: "Week 11", topic: "Testing & Documentation" },
-      { week: "Week 12", topic: "Capstone Backend Project" },
-    ],
+    description:
+      "Become a Node.js backend developer. Learn Express.js, build REST APIs, implement authentication, and create scalable server-side applications.",
+  },
+  {
+    title: "Frontend Web Development (React)",
+    duration: "12 Weeks",
+    description:
+      "Build modern user interfaces with React. Learn component architecture, state management, API integration, and deploy production-ready applications.",
   },
 ];
 
 const Courses = () => {
   return (
-    <section id="courses" className="py-20 md:py-28 bg-muted/30">
+    <section id="courses" className="py-20 md:py-28 bg-secondary/50">
       <div className="container">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/15 text-accent-foreground text-sm font-medium mb-4">
+        <div className="max-w-2xl mb-16">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
             Our Programs
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground">
-            Choose Your{" "}
-            <span className="text-gradient">Learning Path</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Whether you're starting from scratch or leveling up your backend skills, we have a program designed for your goals.
+          <p className="text-lg text-muted-foreground">
+            Structured 12-week programs designed to take you from fundamentals to building real-world applications.
           </p>
         </div>
 
-        {/* Course cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {courses.map((course, index) => (
-            <CourseCard key={course.title} {...course} />
+        {/* Course grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {courses.map((course) => (
+            <div
+              key={course.title}
+              className="bg-background border border-border rounded-xl p-6 md:p-8 hover:border-primary/30 transition-colors"
+            >
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                <Clock className="w-4 h-4" />
+                {course.duration}
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-foreground mb-3">
+                {course.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {course.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>
