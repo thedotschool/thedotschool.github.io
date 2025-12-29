@@ -38,7 +38,7 @@ const About = () => {
             <span className="text-secondary">Engineering Skills</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            We're on a mission to help beginners and aspiring developers in Africa build practical software engineering skills. Our programs focus on backend engineering, problem-solving, and real-world project experience.
+            We're on a mission to help beginners and aspiring developers in Africa build practical software engineering skills. Our programs cover frontend and backend engineering, problem-solving, and real-world project experience.
           </p>
         </AnimatedSection>
 

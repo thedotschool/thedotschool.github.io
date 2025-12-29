@@ -30,21 +30,23 @@ const Logo = ({ variant = "dark", size = "md" }: LogoProps) => {
   const dotColor = "text-accent";
 
   return (
-    <div className={`flex flex-col items-start leading-none ${sizes.container}`}>
-      {/* "the" in elegant italic script */}
-      <span 
-        className={`italic tracking-widest ${sizes.the} ${textColor} opacity-70 ml-0.5`}
-        style={{ fontFamily: "'Cormorant Garamond', serif" }}
-      >
-        the
-      </span>
+    <div className={`flex items-end leading-none ${sizes.container}`}>
+      {/* "the" positioned elegantly */}
+      <div className="flex flex-col items-end mr-0.5">
+        <span 
+          className={`italic tracking-wide ${sizes.the} ${textColor} opacity-60`}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500 }}
+        >
+          the
+        </span>
+      </div>
       {/* Main logo: .school */}
-      <div className="flex items-baseline -mt-0.5">
+      <div className="flex items-baseline">
         <span 
           className={`font-black ${sizes.dot} ${dotColor} leading-none`}
           style={{ 
             fontFamily: "'Outfit', sans-serif",
-            textShadow: '2px 2px 0 hsl(var(--primary))'
+            textShadow: '1px 1px 0 hsl(var(--primary))'
           }}
         >
           .

@@ -2,8 +2,8 @@ import { GraduationCap, CheckCircle2, Star, Heart } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const benefits = [
-  "First 100 students per cohort receive sponsored scholarships",
-  "90% reduction on course fees (₦100,000 → ₦10,000)",
+  "First 100 students per course receive sponsored scholarships",
+  "90% reduction on course fees (₦100,000 to ₦10,000)",
   "Full access to all course materials and resources",
   "Direct mentorship from experienced engineers",
   "Certificate of completion",
@@ -33,7 +33,7 @@ const Scholarship = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              We believe quality tech education should be accessible. Thanks to our amazing community contributors who believe in creating equal access to opportunities in tech, the <strong className="text-foreground">first 100 students</strong> for each cohort have their scholarships fully paid for — reducing the course fee from ₦100,000 to just ₦10,000.
+              We believe quality tech education should be accessible. Thanks to our amazing community contributors who believe in creating equal access to opportunities in tech, the <strong className="text-foreground">first 100 students</strong> for each course have their scholarships fully paid for, reducing the course fee from ₦100,000 to just ₦10,000.
             </p>
 
             <div className="space-y-4">
@@ -63,7 +63,7 @@ const Scholarship = () => {
                   </h3>
                   
                   <p className="text-primary-foreground/80 mb-8 leading-relaxed">
-                    Our scholarships are made possible by generous contributors who believe in Africa's tech future. Apply early — only 100 spots per cohort!
+                    Our scholarships are made possible by generous contributors who believe in Africa's tech future. Apply early, only 100 spots per course!
                   </p>
 
                   <div className="bg-primary-foreground/10 rounded-2xl p-6 backdrop-blur-sm">
@@ -79,7 +79,7 @@ const Scholarship = () => {
                       </div>
                     </div>
                     <p className="text-xs text-primary-foreground/60">
-                      *Limited to first 100 students per cohort
+                      *Limited to first 100 students per course
                     </p>
                   </div>
                 </div>
