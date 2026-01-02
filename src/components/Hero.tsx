@@ -19,14 +19,6 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen py-20 text-center">
-        {/* Badge */}
-        <div 
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/10 border border-background/20 text-background text-sm mb-8 backdrop-blur-sm opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.2s" }}
-        >
-          <Sparkles className="w-4 h-4 text-accent" />
-          <span>Enrollment Now Open</span>
-        </div>
 
         {/* Headline */}
         <h1 

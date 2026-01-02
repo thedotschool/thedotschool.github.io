@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
           <div className="mb-4">
-            <Logo variant="light" size="lg" />
+            <Logo variant="light" size="sm" />
           </div>
 
           {/* Tagline */}
