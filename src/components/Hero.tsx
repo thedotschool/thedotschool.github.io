@@ -84,10 +84,10 @@ const Hero = () => {
           </span>
         </div>
 
-        {/* Countdown Timer */}
+        {/* Countdown Timer - Prominently positioned */}
         <div 
-          className="mt-8 opacity-0 animate-fade-in"
-          style={{ animationDelay: "1.1s" }}
+          className="mt-10 opacity-0 animate-fade-in"
+          style={{ animationDelay: "1s" }}
         >
           <CountdownTimer />
         </div>

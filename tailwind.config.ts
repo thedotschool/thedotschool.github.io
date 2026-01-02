@@ -14,9 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Space Grotesk", "sans-serif"],
-        body: ["Outfit", "sans-serif"],
-        logo: ["Cormorant Garamond", "serif"],
+        heading: ["Lexend", "sans-serif"],
+        body: ["Plus Jakarta Sans", "sans-serif"],
+        logo: ["Caveat", "cursive"],
+        "logo-text": ["Lexend", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
