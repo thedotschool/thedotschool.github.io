@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
       </div>
 
-      <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen py-20 text-center">
+      <div className="container relative z-10 flex flex-col items-center justify-center min-h-screen pt-32 pb-20 text-center">
 
         {/* Headline */}
         <h1 
