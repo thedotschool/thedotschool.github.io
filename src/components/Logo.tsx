@@ -5,55 +5,46 @@ interface LogoProps {
 
 const sizeStyles = {
   sm: {
-    the: "text-[9px]",
-    dot: "text-2xl",
+    the: "text-sm",
+    dot: "w-2 h-2",
     school: "text-base",
-    container: "gap-0",
   },
   md: {
-    the: "text-[10px]",
-    dot: "text-3xl",
-    school: "text-lg",
-    container: "gap-0",
+    the: "text-lg",
+    dot: "w-2.5 h-2.5",
+    school: "text-xl",
   },
   lg: {
-    the: "text-xs",
-    dot: "text-4xl",
-    school: "text-xl",
-    container: "gap-0",
+    the: "text-xl",
+    dot: "w-3 h-3",
+    school: "text-2xl",
   },
 };
 
 const Logo = ({ variant = "dark", size = "md" }: LogoProps) => {
   const sizes = sizeStyles[size];
-  const textColor = variant === "light" ? "text-primary-foreground" : "text-foreground";
-  const dotColor = "text-accent";
+  const textColor = variant === "light" ? "text-background" : "text-foreground";
 
   return (
-    <div className={`flex items-end leading-none ${sizes.container}`}>
-      {/* "the" positioned elegantly */}
-      <div className="flex flex-col items-end mr-0.5">
+    <div className="flex flex-col leading-none">
+      {/* "The" in Caveat font */}
+      <span 
+        className={`${sizes.the} ${textColor} italic`}
+        style={{ fontFamily: "'Caveat', cursive", fontWeight: 600 }}
+      >
+        The
+      </span>
+      {/* .school with solid dot */}
+      <div className="flex items-center -mt-1">
         <span 
-          className={`italic tracking-wide ${sizes.the} ${textColor} opacity-60`}
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500 }}
-        >
-          the
-        </span>
-      </div>
-      {/* Main logo: .school */}
-      <div className="flex items-baseline">
-        <span 
-          className={`font-black ${sizes.dot} ${dotColor} leading-none`}
+          className={`${sizes.dot} rounded-full bg-accent inline-block`}
           style={{ 
-            fontFamily: "'Outfit', sans-serif",
-            textShadow: '1px 1px 0 hsl(var(--primary))'
+            boxShadow: '1px 2px 4px rgba(0,0,0,0.3)'
           }}
-        >
-          .
-        </span>
+        />
         <span 
-          className={`font-bold tracking-tight ${sizes.school} ${textColor}`}
-          style={{ fontFamily: "'Outfit', sans-serif" }}
+          className={`font-bold ${sizes.school} ${textColor} ml-0.5`}
+          style={{ fontFamily: "'Lexend', sans-serif" }}
         >
           school
         </span>

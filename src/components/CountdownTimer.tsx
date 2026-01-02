@@ -9,7 +9,7 @@ interface TimeLeft {
 }
 
 const CountdownTimer = () => {
-  const targetDate = new Date("2025-01-25T23:59:00");
+  const targetDate = new Date("2025-02-09T23:59:00");
   
   const calculateTimeLeft = (): TimeLeft => {
     const difference = targetDate.getTime() - new Date().getTime();
@@ -38,28 +38,28 @@ const CountdownTimer = () => {
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center">
-      <div className="bg-background/15 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[48px] border border-background/20">
-        <span className="text-xl md:text-2xl font-bold text-background font-heading tabular-nums">
+      <div className="bg-accent/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[56px] border border-accent/40">
+        <span className="text-2xl md:text-3xl font-bold text-background font-heading tabular-nums">
           {value.toString().padStart(2, "0")}
         </span>
       </div>
-      <span className="text-[10px] text-background/70 mt-1 uppercase tracking-wider">{label}</span>
+      <span className="text-xs text-background/80 mt-2 uppercase tracking-wider font-medium">{label}</span>
     </div>
   );
 
   return (
-    <div className="flex flex-col items-center gap-3">
-      <div className="flex items-center gap-2 text-background/80 text-sm">
-        <Clock className="w-4 h-4" />
-        <span>Enrollment closes Jan 25, 11:59 PM</span>
+    <div className="flex flex-col items-center gap-4 p-6 rounded-2xl bg-background/10 backdrop-blur-md border border-accent/30">
+      <div className="flex items-center gap-2 text-accent text-base font-semibold">
+        <Clock className="w-5 h-5" />
+        <span>Enrollment closes February 9, 11:59 PM</span>
       </div>
-      <div className="flex items-center gap-2 md:gap-3">
+      <div className="flex items-center gap-3 md:gap-4">
         <TimeUnit value={timeLeft.days} label="Days" />
-        <span className="text-2xl text-accent font-bold">:</span>
+        <span className="text-3xl text-accent font-bold">:</span>
         <TimeUnit value={timeLeft.hours} label="Hours" />
-        <span className="text-2xl text-accent font-bold">:</span>
+        <span className="text-3xl text-accent font-bold">:</span>
         <TimeUnit value={timeLeft.minutes} label="Mins" />
-        <span className="text-2xl text-accent font-bold">:</span>
+        <span className="text-3xl text-accent font-bold">:</span>
         <TimeUnit value={timeLeft.seconds} label="Secs" />
       </div>
     </div>
