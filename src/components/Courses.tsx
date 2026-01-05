@@ -68,7 +68,7 @@ const courses = [
     ],
   },
   {
-    title: "Frontend Web Development",
+    title: "Frontend Web Development (React)",
     description: "Build modern, responsive, and interactive web interfaces using industry-standard frontend tools including React and modern JavaScript.",
     duration: "12 Weeks",
     originalPrice: "₦100,000",
