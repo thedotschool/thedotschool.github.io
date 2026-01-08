@@ -35,13 +35,13 @@ const colorStyles = {
     badge: "bg-secondary/10 text-secondary",
     border: "border-secondary/20 hover:border-secondary/40",
     accent: "text-secondary",
-    button: "terracotta" as const,
+    button: "secondary" as const,
   },
   gold: {
     badge: "bg-accent/20 text-accent-foreground",
     border: "border-accent/30 hover:border-accent/50",
-    accent: "text-gold-dark",
-    button: "gold" as const,
+    accent: "text-accent",
+    button: "accent" as const,
   },
 };
 
