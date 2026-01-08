@@ -1,3 +1,4 @@
+npm install --save-dev gh-pages
 # Welcome to your Lovable project
 
 ## Project info
