@@ -63,24 +63,24 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        brand: {
-          DEFAULT: "hsl(210 11% 18%)",
-          light: "hsl(210 8% 35%)",
-          lighter: "hsl(210 6% 50%)",
-          dark: "hsl(210 12% 12%)",
+        terracotta: {
+          DEFAULT: "hsl(18 60% 50%)",
+          light: "hsl(18 55% 60%)",
+          dark: "hsl(18 65% 40%)",
         },
-        neutral: {
-          DEFAULT: "hsl(210 6% 97%)",
-          50: "hsl(210 6% 98%)",
-          100: "hsl(210 6% 95%)",
-          200: "hsl(210 6% 90%)",
-          300: "hsl(210 8% 80%)",
-          400: "hsl(210 8% 65%)",
-          500: "hsl(210 8% 50%)",
-          600: "hsl(210 8% 35%)",
-          700: "hsl(210 10% 25%)",
-          800: "hsl(210 11% 18%)",
-          900: "hsl(210 12% 12%)",
+        gold: {
+          DEFAULT: "hsl(42 90% 55%)",
+          light: "hsl(42 85% 65%)",
+          dark: "hsl(42 95% 45%)",
+        },
+        indigo: {
+          DEFAULT: "hsl(235 50% 25%)",
+          light: "hsl(235 45% 35%)",
+          dark: "hsl(235 55% 18%)",
+        },
+        sand: {
+          DEFAULT: "hsl(35 30% 97%)",
+          dark: "hsl(35 25% 90%)",
         },
       },
       borderRadius: {

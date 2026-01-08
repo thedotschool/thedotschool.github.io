@@ -143,7 +143,7 @@ const Header = () => {
                 Scholarship
               </button>
               <Button 
-                variant="default"
+                variant="terracotta"
                 className="mt-2"
                 asChild
               >
