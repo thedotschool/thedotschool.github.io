@@ -6,91 +6,91 @@
 
 @layer base {
   :root {
-    /* African-Tech Fusion Color Palette */
-    --background: 35 30% 97%;
-    --foreground: 230 40% 15%;
+    /* Modern Professional Color Palette - #2b3035 based */
+    --background: 210 6% 97%;
+    --foreground: 210 11% 18%;
 
-    --card: 35 25% 95%;
-    --card-foreground: 230 40% 15%;
+    --card: 210 6% 95%;
+    --card-foreground: 210 11% 18%;
 
-    --popover: 35 25% 95%;
-    --popover-foreground: 230 40% 15%;
+    --popover: 210 6% 95%;
+    --popover-foreground: 210 11% 18%;
 
-    /* Deep Indigo - Primary */
-    --primary: 235 50% 25%;
-    --primary-foreground: 35 30% 97%;
+    /* Primary - #2b3035 */
+    --primary: 210 11% 18%;
+    --primary-foreground: 210 6% 97%;
 
-    /* Terracotta - Secondary */
-    --secondary: 18 60% 50%;
-    --secondary-foreground: 35 30% 97%;
+    /* Secondary - lighter shade */
+    --secondary: 210 8% 35%;
+    --secondary-foreground: 210 6% 97%;
 
-    /* Muted sand tones */
-    --muted: 35 20% 90%;
-    --muted-foreground: 230 20% 40%;
+    /* Muted tones */
+    --muted: 210 6% 90%;
+    --muted-foreground: 210 8% 45%;
 
-    /* Gold - Accent */
-    --accent: 42 90% 55%;
-    --accent-foreground: 230 40% 15%;
+    /* Accent - subtle warm gray */
+    --accent: 210 8% 28%;
+    --accent-foreground: 210 6% 97%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 210 6% 98%;
 
-    --border: 35 20% 85%;
-    --input: 35 20% 85%;
-    --ring: 235 50% 25%;
+    --border: 210 8% 85%;
+    --input: 210 8% 85%;
+    --ring: 210 11% 18%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(235 50% 20%) 0%, hsl(235 45% 30%) 50%, hsl(18 45% 35%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(35 25% 98%) 0%, hsl(35 20% 94%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(42 90% 55%) 0%, hsl(35 80% 50%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(18 60% 50%) 0%, hsl(18 65% 40%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 11% 15%) 0%, hsl(210 10% 22%) 50%, hsl(210 8% 28%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(210 6% 98%) 0%, hsl(210 6% 94%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(210 11% 18%) 0%, hsl(210 8% 28%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(210 11% 18%) 0%, hsl(210 10% 25%) 100%);
     
-    --shadow-soft: 0 4px 20px -4px hsl(230 40% 15% / 0.1);
-    --shadow-card: 0 8px 30px -8px hsl(230 40% 15% / 0.12);
-    --shadow-elevated: 0 20px 50px -15px hsl(230 40% 15% / 0.15);
+    --shadow-soft: 0 4px 20px -4px hsl(210 11% 18% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(210 11% 18% / 0.12);
+    --shadow-elevated: 0 20px 50px -15px hsl(210 11% 18% / 0.18);
     
     --pattern-opacity: 0.04;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 210 6% 98%;
+    --sidebar-foreground: 210 11% 18%;
+    --sidebar-primary: 210 11% 18%;
+    --sidebar-primary-foreground: 210 6% 98%;
+    --sidebar-accent: 210 6% 94%;
+    --sidebar-accent-foreground: 210 11% 18%;
+    --sidebar-border: 210 8% 90%;
+    --sidebar-ring: 210 11% 25%;
   }
 
   .dark {
-    --background: 230 40% 10%;
-    --foreground: 35 30% 95%;
+    --background: 210 11% 10%;
+    --foreground: 210 6% 95%;
 
-    --card: 230 35% 15%;
-    --card-foreground: 35 30% 95%;
+    --card: 210 10% 15%;
+    --card-foreground: 210 6% 95%;
 
-    --popover: 230 35% 15%;
-    --popover-foreground: 35 30% 95%;
+    --popover: 210 10% 15%;
+    --popover-foreground: 210 6% 95%;
 
-    --primary: 42 90% 55%;
-    --primary-foreground: 230 40% 10%;
+    --primary: 210 6% 85%;
+    --primary-foreground: 210 11% 10%;
 
-    --secondary: 18 50% 45%;
-    --secondary-foreground: 35 30% 95%;
+    --secondary: 210 8% 50%;
+    --secondary-foreground: 210 6% 95%;
 
-    --muted: 230 30% 20%;
-    --muted-foreground: 35 20% 70%;
+    --muted: 210 10% 20%;
+    --muted-foreground: 210 6% 70%;
 
-    --accent: 42 85% 50%;
-    --accent-foreground: 230 40% 10%;
+    --accent: 210 8% 40%;
+    --accent-foreground: 210 6% 95%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 210 6% 98%;
 
-    --border: 230 30% 25%;
-    --input: 230 30% 25%;
-    --ring: 42 90% 55%;
+    --border: 210 10% 25%;
+    --input: 210 10% 25%;
+    --ring: 210 6% 85%;
   }
 }
 
@@ -134,22 +134,22 @@
     box-shadow: var(--shadow-elevated);
   }
 
-  /* African geometric pattern */
+  /* Modern geometric pattern */
   .pattern-african {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zm0 10L10 30l20 20 20-20L30 10z' fill='%23ffffff' fill-opacity='0.04'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zm0 10L10 30l20 20 20-20L30 10z' fill='%23ffffff' fill-opacity='0.06'/%3E%3C/svg%3E");
   }
 
   .pattern-african-dark {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zm0 10L10 30l20 20 20-20L30 10z' fill='%231a1a2e' fill-opacity='0.06'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0zm0 10L10 30l20 20 20-20L30 10z' fill='%232b3035' fill-opacity='0.06'/%3E%3C/svg%3E");
   }
 
   .border-pattern {
     border-image: repeating-linear-gradient(
       90deg,
-      hsl(42 90% 55%),
-      hsl(42 90% 55%) 10px,
-      hsl(18 60% 50%) 10px,
-      hsl(18 60% 50%) 20px
+      hsl(210 11% 18%),
+      hsl(210 11% 18%) 10px,
+      hsl(210 8% 35%) 10px,
+      hsl(210 8% 35%) 20px
     ) 1;
   }
 }
