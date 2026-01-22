@@ -51,7 +51,7 @@ const CountdownTimer = () => {
     <div className="flex flex-col items-center gap-4 p-6 rounded-2xl bg-background/10 backdrop-blur-md border border-accent/30">
       <div className="flex items-center gap-2 text-accent text-base font-semibold">
         <Clock className="w-5 h-5" />
-        <span>Enrollment closes March 22, 11:59 PM</span>
+        <span>Enrollment closes February 22, 11:59 PM</span>
       </div>
       <div className="flex items-center gap-3 md:gap-4">
         <TimeUnit value={timeLeft.days} label="Days" />
